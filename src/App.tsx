@@ -1,36 +1,24 @@
-import { useState } from 'react'
-import React from "react";
+import Box from '@mui/material/Box';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import AboutPage from './components/about/aboutpage/aboutpage';
 import CatGalleryPage from './components/catgallery/catgallerypage/catgallerypage';
 import FoundingPage from './components/founding/foundingpage/foundingpage';
+import AppHeaderComponent from "./components/applayout/appheader/appheader";
 
 import './App.scss'
+
 
 function App() {
 
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Cat Gallery</Link>
-          </li>
-          <li>
-            <Link to="/help">Help</Link>
-          </li>
-          <li>
-            <Link to="/about">About Us</Link>
-          </li>
-        </ul>
-
+      <Box sx={{ flexGrow: 1 }}>
+        <AppHeaderComponent />
         <Switch>
-          
           <Route path="/about">
             <AboutPage />
           </Route>
@@ -41,7 +29,7 @@ function App() {
             <CatGalleryPage />
           </Route>
         </Switch>
-      </div>
+      </Box>
     </Router>
   )
 }
